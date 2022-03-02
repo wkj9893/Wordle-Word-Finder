@@ -1,4 +1,8 @@
-const data = (await Deno.readTextFile("./wordle.txt")).split("\n");
+// const data = (await Deno.readTextFile("./wordle.txt")).split("\n");
+const response = await fetch(
+  "https://raw.githubusercontent.com/wkj9893/Wordle-Word-Finder/main/wordle.txt",
+);
+const data = (await response.text()).split("\n");
 
 const good = prompt("Good letters:") ?? "";
 const bad = new Set(prompt("Bad letters:"));
